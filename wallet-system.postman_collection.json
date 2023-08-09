@@ -1,0 +1,138 @@
+{
+	"info": {
+		"_postman_id": "427efd10-ca6a-4bcb-81b3-07b6ddf7f605",
+		"name": "wallet-system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "wallet setup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"balance\": 1000, \"name\": \"Wallet D\" }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/setup",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"setup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Credit / Debit transactions",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\": 112.4,\r\n    \"description\": \"Recharge\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/transact/64d3365f3aeafeb429768e0e",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"transact",
+						"64d3365f3aeafeb429768e0e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": " Fetching transactions on wallet ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/transactions?walletId=64d3365f3aeafeb429768e0e&skip=0&limit=10",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"transactions"
+					],
+					"query": [
+						{
+							"key": "walletId",
+							"value": "64d3365f3aeafeb429768e0e"
+						},
+						{
+							"key": "skip",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get wallet details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/wallet/64d3365f3aeafeb429768e0e",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"wallet",
+						"64d3365f3aeafeb429768e0e"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://wallet-system-kika8919.vercel.app",
+			"type": "default"
+		}
+	]
+}
