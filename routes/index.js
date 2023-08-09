@@ -9,6 +9,14 @@ const {
   getWalletDetails,
 } = require("../controller/wallet.controller");
 
+router.get("/", (req, res, next) => {
+  res.json({
+    status: "healthy",
+    uptime: process.uptime(),
+    timestamp: new Date(),
+  });
+});
+
 router.post("/setup", setupWallet);
 
 router.post("/transact/:walletId", creditDebitAmount);
